@@ -10,7 +10,7 @@ Consumers require neither Node.js nor Git. The Registry grants no capabilities.
 Official short names resolve as `@lenso/<name>`. A project may configure additional
 Registry namespace routes. Business resource catalogs belong to their extensions.
 
-Code 0.3.2 and the Code preset 0.3.2 require Lenso CLI 1.0.0 (Host 0.2.4,
+Code 0.3.3 and the Code preset 0.3.3 require Lenso CLI 1.0.0 (Host 0.2.4,
 Project 0.1.2). Install through the official names and review the requested setup:
 
 ```sh
@@ -38,6 +38,28 @@ Code resolves its own module directory, language/runtime choices, adapter bindin
 source versions and generation plans. The Host Registry only resolves extensions
 and presets. The historical Auth preset remains available for existing installs,
 but is omitted from preset discovery. SDK code is unchanged.
+
+Code 0.3.3 reads project conventions and defaults from root `lenso.code.toml`.
+Use `lenso code config` to inspect settings or review changes through flags:
+
+```sh
+lenso code config --language typescript --runtime node26
+lenso code config --modules-path src/modules --import-alias '@/modules'
+lenso code config --provider lenso.auth-store=postgres
+lenso code preview auth
+lenso code add auth
+```
+
+Directory target `when` conditions select fixed implementations; capability slots
+remain flexible adapter choices. Missing conventions are asked before generation
+and saved only after approval. Existing module choices win over project defaults.
+Changing installed conventions requires `--reconfigure`; language/runtime changes
+require another project target. See the
+[project configuration guide](https://github.com/LioRael/lenso-cli/blob/main/docs/code-project-configuration.md).
+
+To upgrade an initialized project, use `lenso ext add code --constraint '^0.3.3'`
+and review setup access to the new config file. Use `lenso preset apply code` to
+refresh its preset selection. SDK code remains unchanged.
 
 Existing project locks retain their pinned versions until explicitly refreshed;
 older immutable package records remain available.
