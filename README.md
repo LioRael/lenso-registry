@@ -10,7 +10,7 @@ Consumers require neither Node.js nor Git. The Registry grants no capabilities.
 Official short names resolve as `@lenso/<name>`. A project may configure additional
 Registry namespace routes. Business resource catalogs belong to their extensions.
 
-Code 0.3.4 and the Code preset 0.3.4 require Lenso CLI 1.0.0 (Host 0.2.4,
+Code 0.3.5 and the Code preset 0.3.5 require Lenso CLI 1.0.0 (Host 0.2.4,
 Project 0.1.2). Install through the official names and review the requested setup:
 
 ```sh
@@ -39,7 +39,7 @@ source versions and generation plans. The Host Registry only resolves extensions
 and presets. The historical Auth preset remains available for existing installs,
 but is omitted from preset discovery. SDK code is unchanged.
 
-Code 0.3.4 reads project conventions and defaults from root `lenso.code.toml`.
+Code 0.3.5 reads project conventions and defaults from root `lenso.code.toml`.
 Use `lenso code config` to inspect settings or review changes through flags:
 
 ```sh
@@ -58,9 +58,15 @@ TTL and other instance settings. Changing installed conventions requires `--reco
 require another project target. See the
 [project configuration guide](https://github.com/LioRael/lenso-cli/blob/main/docs/code-project-configuration.md).
 
-To upgrade an initialized project, use `lenso ext add code --constraint '^0.3.4'`
+To upgrade an initialized project, use `lenso ext add code --constraint '^0.3.5'`
 and review setup access to the new config file. Use `lenso preset apply code` to
-refresh its preset selection. SDK code remains unchanged.
+refresh its preset selection. If an older project points the official repository at
+`catalog.toml`, run `lenso ext configure code` after upgrading to review migration
+to the module directory. Code 0.3.5 defaults that repository to
+`lenso-modules-v1` / `lenso.modules.toml`, including an explicitly supplied repo.
+Legacy default-branch profiles are migrated without replacing custom profiles,
+refs, target roots or existing grants; custom branches and pinned refs keep their
+original interpretation. SDK code remains unchanged.
 
 Existing project locks retain their pinned versions until explicitly refreshed;
 older immutable package records remain available.
