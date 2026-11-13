@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "@lenso/shadcn",
+  "releases": [
+    {
+      "version": "0.1.1",
+      "source": "github-release:LioRael/lenso-cli/shadcn",
+      "sha256": "9b07d7577f98f1be19b00c2f63b08467880f120793aa075cab8973fac5440214"
+    }
+  ]
+}
