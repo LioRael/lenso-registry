@@ -10,6 +10,24 @@ Consumers require neither Node.js nor Git. The Registry grants no capabilities.
 Official short names resolve as `@lenso/<name>`. A project may configure additional
 Registry namespace routes. Business resource catalogs belong to their extensions.
 
+Code 0.2.0 and the Code preset 0.2.0 require Lenso CLI 1.0.0 (Host 0.2.4,
+Project 0.1.2). Install through the official names and review the requested setup:
+
+```sh
+lenso ext add code                 # Add to an initialized project
+lenso new my-app --preset code     # Create a project
+lenso init --preset code           # Adopt an existing project
+lenso preset apply code            # Apply or refresh the preset selection
+```
+
+Code asks for a resource repository, or accepts local author settings through
+`--input '{"author_root":"author","target":"src"}'`. Version 0.2.0 adds
+composition, template validation and generation, incremental updates, adapter
+cleanup and reviewed Cargo/npm dependency plans. See the
+[Code author guide](https://github.com/LioRael/lenso-cli/blob/main/docs/code-generation.md).
+Existing project locks retain their pinned versions until explicitly refreshed;
+older immutable package records remain available.
+
 Publish an extension with `lenso publish --github`, then use the author tool in the
 CLI repository to propose registration:
 
