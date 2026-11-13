@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "@lenso/code",
+  "releases": [
+    {
+      "version": "0.1.2",
+      "source": "github-release:LioRael/lenso-cli/code",
+      "sha256": "f8c6ac7247ea976c5e74d72f7951644a77f1e99f9485800575dd2abeaf5e2a2b"
+    }
+  ]
+}
