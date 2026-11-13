@@ -1,0 +1,27 @@
+schema_version = 1
+id = "@lenso/auth"
+version = "0.1.0"
+adopt = "code/ready"
+
+[[extensions]]
+id = "code"
+source = "registry:@lenso/code"
+version = "^0.3.0"
+
+[extensions.options.setup]
+repo = "LioRael/lenso-modules"
+ref = "v0.1.0"
+format = "lenso-compose-v1"
+target = "src"
+
+[extensions.options.variants.typescript]
+runtime = "node26"
+[extensions.options.variants.typescript.setup]
+catalog = "auth.typescript.toml"
+native = { npm = { manifest = "package.json" } }
+
+[extensions.options.variants.rust]
+runtime = "tokio"
+[extensions.options.variants.rust.setup]
+catalog = "auth.rust.toml"
+native = { cargo = { manifest = "Cargo.toml" } }

@@ -1,4 +1,8 @@
 {
   "schema_version": 1,
-  "presets": ["code", "shadcn"]
+  "presets": [
+    "code",
+    "shadcn",
+    "auth"
+  ]
 }
