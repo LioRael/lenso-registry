@@ -1,0 +1,11 @@
+{
+  "schema_version": 1,
+  "name": "@lenso/app",
+  "releases": [
+    {
+      "version": "0.1.0",
+      "source": "github-release:LioRael/lenso-cli/app",
+      "sha256": "1e403ffc63f3b2dec6640790f70e68da806bb76341e0c71921f43cc152a3ec12"
+    }
+  ]
+}
