@@ -10,6 +10,35 @@ Consumers require neither Node.js nor Git. The Registry grants no capabilities.
 Official short names resolve as `@lenso/<name>`. A project may configure additional
 Registry namespace routes. Business resource catalogs belong to their extensions.
 
+App 0.1.0 and the `app` preset provide editable TypeScript/Node.js 26 and
+Rust/Tokio (Rust 1.99.0) HTTP applications. The preset groups App and Code 0.3.6;
+Auth 0.3.0 is a module installed separately through Code:
+
+```sh
+lenso new my-api --preset app
+cd my-api
+lenso code config --provider lenso.auth-store=sqlite
+lenso code preview auth
+lenso code add auth
+lenso app migrate
+lenso app check
+lenso app run
+```
+
+Creation asks for the language and reviews files and native commands. Agents can
+provide `--input '{"language":"rust"}' --yes --json`. Project configuration reuses
+`lenso.code.toml`, defaults to `src/modules`, and selects the module HTTP variant
+through `app_host="lenso-http-v1"`. Storage remains a flexible provider choice.
+Choose `lenso.auth-store=postgres` and put DATABASE_URL in the app's `.env` for
+PostgreSQL. Schemas migrate explicitly; normal startup checks the existing schema.
+
+The empty host exposes `/health`; Auth adds JSON register/login/session/logout
+routes. `app preview` reviews initialization, `app prepare` retries dependencies,
+and repeated `app init` preserves user-owned source. Native commands require
+authorization. Server output stays on stderr in JSON mode. The initial Auth HTTP
+variant mounts one primary instance named `auth`; reusable base module catalogs
+remain available to custom hosts. SDK and CLI Runtime are unchanged.
+
 Code 0.3.6 and the Code preset 0.3.6 require Lenso CLI 1.0.0 (Host 0.2.4,
 Project 0.1.2). Install through the official names and review the requested setup:
 
