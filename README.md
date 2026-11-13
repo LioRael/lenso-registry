@@ -10,7 +10,7 @@ Consumers require neither Node.js nor Git. The Registry grants no capabilities.
 Official short names resolve as `@lenso/<name>`. A project may configure additional
 Registry namespace routes. Business resource catalogs belong to their extensions.
 
-Code 0.3.0 and the Code preset 0.3.0 require Lenso CLI 1.0.0 (Host 0.2.4,
+Code 0.3.1 and the Code preset 0.3.1 require Lenso CLI 1.0.0 (Host 0.2.4,
 Project 0.1.2). Install through the official names and review the requested setup:
 
 ```sh
@@ -25,14 +25,18 @@ Code asks for a resource repository, or accepts local author settings through
 composition, template validation and generation, incremental updates, adapter
 cleanup and reviewed Cargo/npm dependency plans. See the
 [Code author guide](https://github.com/LioRael/lenso-cli/blob/main/docs/code-generation.md).
-Auth 0.1.0 is available through `lenso init --preset auth` in a prepared native
+Auth 0.2.0 is available through `lenso init --preset auth` in a prepared native
 application. Choose TypeScript/Node.js 26 or Rust/Tokio, then run `lenso code validate`,
 `lenso code compose-preview --sample default` and `lenso code compose --sample default`.
 Agents can pass `--input '{"language":"rust"}'` during initialization. The preset
-uses pinned [module sources](https://github.com/LioRael/lenso-modules/tree/v0.1.0),
-SQLite and scrypt; generated dependencies require the selected language toolchain.
+uses pinned [module sources](https://github.com/LioRael/lenso-modules/tree/v0.2.0),
+SQLite or PostgreSQL and scrypt; generated dependencies require the selected language toolchain.
 It adopts an existing `package.json`/`Cargo.toml` application, rather than creating
-a full application scaffold. Language/runtime changes require a new target.
+a full application scaffold. Language/runtime changes require a new target. PostgreSQL reads `DATABASE_URL` at
+application runtime; previews and receipts contain only an environment reference.
+Use the `postgres` sample for PostgreSQL or the `default` sample for SQLite.
+Store switching reconciles owned source/dependencies after authorization and leaves
+existing database data intact; it does not convert data between stores.
 Code 0.3 adds these preset defaults and explicit target choices without embedding
 business logic in the Host or changing the SDK.
 
