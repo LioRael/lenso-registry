@@ -1,0 +1,23 @@
+presets/code.toml
+  s_c5695907fe744f::t_0af3f564030f44 3,10
+README.md
+  s_c5695907fe744f::t_0af3f564030f44 13,42,61,63-69
+extensions/code.json
+  s_c5695907fe744f::t_047f07cd57a9ae 39-43
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "75098ae8a2a5a273a36318027faf9a1bbad8463e",
+  "prompts": {},
+  "sessions": {
+    "s_c5695907fe744f": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1d06d-149b-7062-aa67-3c0145df9d90",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "LioRael <leo@lenso.dev>"
+    }
+  }
+}
