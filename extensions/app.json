@@ -6,6 +6,11 @@
       "version": "0.1.0",
       "source": "github-release:LioRael/lenso-cli/app",
       "sha256": "1e403ffc63f3b2dec6640790f70e68da806bb76341e0c71921f43cc152a3ec12"
+    },
+    {
+      "version": "0.2.0",
+      "source": "github-release:LioRael/lenso-cli/app",
+      "sha256": "5021f2d9844799330638cd61d859aaeb96441dcf61f24ab9c298ea96ea6a6671"
     }
   ]
 }
