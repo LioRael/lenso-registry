@@ -1,16 +1,16 @@
 schema_version = 1
 id = "@lenso/auth"
-version = "0.2.0"
+version = "0.4.1"
 adopt = "code/ready"
 
 [[extensions]]
 id = "code"
 source = "registry:@lenso/code"
-version = "^0.3.1"
+version = "^0.3.7"
 
 [extensions.options.setup]
 repo = "LioRael/lenso-modules"
-ref = "v0.2.0"
+ref = "v0.4.1"
 format = "lenso-compose-v1"
 target = "src"
 

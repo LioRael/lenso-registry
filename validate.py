@@ -54,3 +54,23 @@ for path in Path("presets").glob("*.toml"):
     for extension in preset["extensions"]:
         assert extension["source"].removeprefix("registry:") in packages
 print("Registry identities, published digests, Wasm pins and preset references passed.")
+
+# Code owns the canonical module directory; validate its latest immutable snapshots
+# without introducing a second independently versioned module index here.
+module_repo = "LioRael/lenso-modules"
+directory = tomllib.loads(download(f"https://raw.githubusercontent.com/{module_repo}/HEAD/lenso.modules.toml").decode())
+assert directory["schema_version"] == 1 and directory["namespace"] == "lenso"
+for name in ("auth", "files"):
+    release = directory["modules"][name]["releases"][-1]
+    reference = release["reference"]
+    assert re.fullmatch(r"v\d+\.\d+\.\d+", reference)
+    published = json.loads(download(f"https://api.github.com/repos/{module_repo}/releases/tags/{reference}"))
+    assert not published["draft"] and not published["prerelease"] and published["tag_name"] == reference
+    for target in release["targets"]:
+        catalog = tomllib.loads(download(f"https://raw.githubusercontent.com/{module_repo}/{reference}/{target['catalog']}").decode())
+        assert catalog["modules"][name]["version"] == release["version"]
+        sdk = "@lenso/app" if target["language"] == "typescript" else "lenso-app"
+        dependency = next(item for item in catalog["generator"]["dependencies"] if item["package"] == sdk)
+        assert tuple(map(int, dependency["version"].split("."))) >= (0, 1, 2)
+        assert any(item["target"] == "metadata.json" for item in catalog["resources"][name])
+print("Canonical Auth/Files releases, catalog versions, SDK floors and metadata resources passed.")

@@ -12,7 +12,7 @@ Registry namespace routes. Business resource catalogs belong to their extensions
 
 App 0.2.0 and the `app` preset provide editable TypeScript/Node.js 26 and
 Rust/Tokio (Rust 1.99.0) HTTP applications. The preset groups App and Code 0.3.6;
-Auth 0.4.0 is a module installed separately through Code:
+Auth 0.4.1 is a module installed separately through Code:
 
 ```sh
 lenso new my-api --preset app
@@ -41,8 +41,8 @@ authorization. Server output stays on stderr in JSON mode. The initial Auth HTTP
 variant mounts one primary instance named `auth`; reusable base module catalogs
 remain available to custom hosts. SDK and CLI Runtime are unchanged.
 
-Files 0.1.0 is a Code module distributed from the module repository's immutable
-v0.4.0 snapshot, alongside Auth 0.4.0. Its SQLite/PostgreSQL metadata provider is
+Files 0.1.1 is a Code module distributed from the module repository's immutable
+v0.4.1 snapshot, alongside Auth 0.4.1. Its SQLite/PostgreSQL metadata provider is
 independent of Auth storage; content uses the local filesystem. File operations
 use the shared identity resolver and native streams. Permissions, limits and
 source updates use the same reviewed project flow. File data is never moved or
@@ -144,3 +144,10 @@ repository and pass `--head-repo YOUR_ACCOUNT/lenso-registry`. The tool creates 
 review branch and PR, never merges it, and never replaces an existing version.
 Reviewers check ownership, package behavior and grants in addition to CI integrity
 checks. Do not submit credentials or change an existing published version's digest.
+
+Auth 0.4.1 and Files 0.1.1 share the immutable source tag `v0.4.1` and require
+published App SDK 0.1.2. Optional Action/Module schemas, capability/effect
+annotations and safe field errors are shared with SDK consumers; native streams
+and existing authorization remain authoritative. The hidden compatibility Auth
+preset is refreshed to that source tag; normal App/Code installs continue reading
+the canonical module directory and locking each selected immutable release.
