@@ -1,0 +1,23 @@
+.github/workflows/validate.yml
+  s_0a36fa17311984::t_5f9af34f15f37d 11-12
+README.md
+  s_0a36fa17311984::t_b4885e1c706c0b 162-166
+validate.py
+  s_0a36fa17311984::t_26328b3a2c7108 4,8-13,17-24
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.7.5",
+  "base_commit_sha": "e4794204de8b9d41cadb2a800fc60e76df5b8ccc",
+  "prompts": {},
+  "sessions": {
+    "s_0a36fa17311984": {
+      "agent_id": {
+        "tool": "codex",
+        "id": "01a1daa8-3fb7-7c03-beac-1e3b4a74162a",
+        "model": "gpt-6.1-sol"
+      },
+      "human_author": "LioRael <leo@lenso.dev>"
+    }
+  }
+}
