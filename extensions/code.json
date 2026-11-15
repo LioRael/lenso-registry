@@ -51,6 +51,11 @@
       "version": "0.3.7",
       "source": "github-release:LioRael/lenso-cli/code",
       "sha256": "0c410ed30456fc1cd6ac76d186fba9b019f7df1435f3d03bbd5b6e872708d15e"
+    },
+    {
+      "version": "0.3.8",
+      "source": "github-release:LioRael/lenso-cli/code",
+      "sha256": "df29cc01cd1ec4a225cdac0ab9e41be745ee0720b0b09076df0b1c0305ba31f6"
     }
   ]
 }

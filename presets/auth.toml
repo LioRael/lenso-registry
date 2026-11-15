@@ -6,7 +6,7 @@ adopt = "code/ready"
 [[extensions]]
 id = "code"
 source = "registry:@lenso/code"
-version = "^0.3.7"
+version = "^0.3.8"
 
 [extensions.options.setup]
 repo = "LioRael/lenso-modules"

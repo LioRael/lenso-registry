@@ -151,3 +151,7 @@ annotations and safe field errors are shared with SDK consumers; native streams
 and existing authorization remain authoritative. The hidden compatibility Auth
 preset is refreshed to that source tag; normal App/Code installs continue reading
 the canonical module directory and locking each selected immutable release.
+
+Code 0.3.8 preserves the explicit shared SDK patch migration introduced in
+0.3.7 and keeps full Rust metadata-catalog validation within the existing
+Wasm budget. The Code and hidden Auth compatibility presets select `^0.3.8`.
