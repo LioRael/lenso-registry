@@ -8,3 +8,5 @@ jobs:
     steps:
       - uses: actions/checkout@v7
       - run: python3 validate.py
+        env:
+          GITHUB_TOKEN: ${{ github.token }}

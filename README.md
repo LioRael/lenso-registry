@@ -159,3 +159,8 @@ Wasm budget. The Code and hidden Auth compatibility presets select `^0.3.8`.
 See the [Auth 0.4.1 / Files 0.1.1 release acceptance](https://github.com/LioRael/lenso-modules/blob/main/docs/releases/v0.4.1-verification.md)
 for published CLI installation and module upgrades on Linux/macOS, including
 the temporary shared SDK patch migration and subsequent override removal.
+
+Registry CI uses its read-only Actions token for canonical GitHub API release
+metadata checks. Authentication is limited to the canonical API repository URLs,
+and authenticated requests reject redirects. Published manifests, bundles and
+module sources are still fetched publicly; their integrity checks are unchanged.

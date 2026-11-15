@@ -1,14 +1,27 @@
 """Validate public Registry identities and exact published manifest digests."""
 import hashlib
 import json
+import os
 from pathlib import Path
 import re
 import tomllib
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
+
+
+class NoApiRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        return None
 
 
 def download(url):
-    with urlopen(Request(url, headers={"User-Agent": "lenso-registry-validation"}), timeout=30) as response:
+    headers = {"User-Agent": "lenso-registry-validation"}
+    token = os.environ.get("GITHUB_TOKEN")
+    if token and url.startswith("https://api.github.com/repos/"):
+        headers["Authorization"] = "Bearer " + token
+        response = build_opener(NoApiRedirect).open(Request(url, headers=headers), timeout=30)
+    else:
+        response = urlopen(Request(url, headers=headers), timeout=30)
+    with response:
         body = response.read(1024 * 1024 + 1)
     if len(body) > 1024 * 1024:
         raise ValueError("metadata exceeds 1 MiB")
