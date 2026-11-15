@@ -155,3 +155,7 @@ the canonical module directory and locking each selected immutable release.
 Code 0.3.8 preserves the explicit shared SDK patch migration introduced in
 0.3.7 and keeps full Rust metadata-catalog validation within the existing
 Wasm budget. The Code and hidden Auth compatibility presets select `^0.3.8`.
+
+See the [Auth 0.4.1 / Files 0.1.1 release acceptance](https://github.com/LioRael/lenso-modules/blob/main/docs/releases/v0.4.1-verification.md)
+for published CLI installation and module upgrades on Linux/macOS, including
+the temporary shared SDK patch migration and subsequent override removal.
